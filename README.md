@@ -21,7 +21,14 @@ This repository contains an implementation of a Hopfield Network for associative
 
 ## Installation
 
-Ensure you have the following libraries installed: NumPy, Matplotlib, Pillow, and Requests for various functionalities.
+To set up the Hopfield Network project, first clone the repository to your local machine. Run the following command in your terminal:
+
+```bash
+git clone https://github.com/GatikiML/Hopfield.git
+cd Hopfield
+pip install numpy matplotlib Pillow requests
+```
+
 
 ## Usage
 
@@ -107,3 +114,9 @@ This project is licensed under the Apache License 2.0. See the LICENSE file for 
 
 - Hopfield, J.J. (1982). "Neural networks and physical systems with emergent collective computational abilities". *Proceedings of the National Academy of Sciences*.
 - Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep Learning*. MIT Press.
+
+## Thanks 😊
+
+``
+Thank you for your patience, and let us know for any suggestions ✨️🤗
+``
