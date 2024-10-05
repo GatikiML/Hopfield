@@ -14,10 +14,10 @@ This repository contains an implementation of a Hopfield Network for associative
 
 1. [Installation](#installation)
 2. [Usage](#usage)
-3. [Code Overview](#code-overview)
-4. [License](#license)
-5. [Contributing](#contributing)
-6. [References](#references)
+3. [License](#license)
+4. [Contributors](#contributors)
+5. [References](#references)
+
 
 ## Installation
 
