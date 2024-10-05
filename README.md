@@ -24,85 +24,78 @@ This repository contains an implementation of a Hopfield Network for associative
 To set up the Hopfield Network project, first clone the repository to your local machine. Run the following command in your terminal:
 
 ```bash
-git clone https://github.com/GatikiML/Hopfield.git
-cd Hopfield
-pip install numpy matplotlib Pillow requests
+pip install hopfield-memory
+```
+or
+```bash
+python -m pip install hopfield-memory
 ```
 
 
 ## Usage
 
-### Importing Required Libraries
+### Import Packages
 
 ```python
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.ndimage import gaussian_filter
-import random
-from PIL import Image, ImageFilter
-import requests
-from io import BytesIO
+import hopfield
+from matplotlib import pyplot as plt
 ```
 
-### Loading and Preprocessing Images
+### Initializing the Hopfield Network
 
 ```python
-def load_and_preprocess_image_from_url(url):
-    response = requests.get(url)
-    img = Image.open(BytesIO(response.content))
-    imgblur = img.filter(ImageFilter.GaussianBlur(radius=1.5))
-    imgblur = imgblur.convert('L').resize((128, 128))
-    img = img.convert('L').resize((128, 128))
-
-    img_array = np.asarray(img) / 255.0
-    binary_image = np.where(img_array > 0.3, 1, -1)
-
-    img_arrayblur = np.asarray(imgblur) / 255.0
-    binary_imageblur = np.where(img_arrayblur > 0.3, 1, -1)
-    
-    return binary_image.flatten(), binary_imageblur.flatten()
-```
-
-### Creating the Hopfield Network Class
-
-```python
-class HopfieldNetwork:
-    def __init__(self, num_neurons):
-        self.num_neurons = num_neurons
-        self.weights = np.zeros((num_neurons, num_neurons))
-
-    def train(self, patterns):
-        for pattern in patterns:
-            self.weights += np.outer(pattern, pattern)
-        np.fill_diagonal(self.weights, 0)
-        self.weights /= len(patterns)
-
-    def retrieve(self, pattern, max_iterations=500):
-        state = pattern.copy()
-        for _ in range(max_iterations):
-            for i in range(self.num_neurons):
-                update = np.dot(self.weights[i], state)
-                state[i] = 1 if update >= 0 else -1
-        return state
+hf = HopfieldNetwork(resolution=128*128)
 ```
 
 ### Training and Retrieving Images
 
 ```python
-# Train the network
-hopfield_net = HopfieldNetwork(num_neurons=128*128)
-hopfield_net.train(imgs)
+#Image URLs / Path / PIL Image Object list
+images = ['https://random.com/image.jpg', 'https://random.com/image2.jpg']
 
-# Display and retrieve a blurred image
-blurred_image = imgsblur[0]
-plot_image(blurred_image, "Blurred Image 1")
-retrieved_image = hopfield_net.retrieve(blurred_image)
-plot_image(retrieved_image, "Retrieved Image 1")
+# Train the network
+hf.train(images, url=True)
+
+# Display a Blurred/Noisy image
+blurred_image = 'https://random.com/blurredimage.jpg'
+blur = plt.imread(blurred_image)
+plt.imshow(blur)
+plt.show()
+
+#Retrive the Orignal image from the Blurred/Noisy Image
+retrieved_state = hf.retrieve(blurred_image, url=True)
+plot_state(retrieved_image, "Retrived Image", pixel=128)
 ```
+
+### Complete Code
+
+```python
+import hopfield
+from matplotlib import pyplot as plt
+
+hf = HopfieldNetwork(resolution=128*128)
+
+#Image URLs / Path / PIL Image Object list
+images = ['https://random.com/image.jpg', 'https://random.com/image2.jpg']
+
+# Train the network
+hf.train(images, url=True)
+
+# Display a Blurred/Noisy image
+blurred_image = 'https://random.com/blurredimage.jpg'
+blur = plt.imread(blurred_image)
+plt.imshow(blur)
+plt.show()
+
+#Retrive the Orignal image from the Blurred/Noisy Image
+retrieved_state = hf.retrieve(blurred_image, url=True)
+plot_state(retrieved_image, "Retrived Image", pixel=128)
+```
+For Example Code File Refer To ``Example.py``
 
 ## License
 
-This project is licensed under the Apache License 2.0. See the LICENSE file for more details.
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
 ## Contributors
 
