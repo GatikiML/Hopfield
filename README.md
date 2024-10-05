@@ -106,9 +106,11 @@ This project is licensed under the Apache License 2.0. See the LICENSE file for 
 
 ## Contributors
 
-- Vyom
-- Abhisar
-- Vihaan
+- Vyom Nishant Patel¹
+- Abhisar Mehta
+- Vihaan Mishra
+
+  1 - Equal Contribution  
 
 ## References
 
