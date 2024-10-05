@@ -7,8 +7,7 @@ This repository contains an implementation of a Hopfield Network for associative
 ## Features
 
 - **Associative Memory**: Retrieve original images from blurred or noisy versions.
-- **Image Processing**: Apply Gaussian blur and convert images to binary format for training.
-- **Dynamic URL Generation**: Fetch images with random rotations using the VisualCube API.
+- **Image Processing**: Train the network on images and retrive orignal images using blured or lower resolution versions of the image.
 
 ## Table of Contents
 
@@ -21,7 +20,7 @@ This repository contains an implementation of a Hopfield Network for associative
 
 ## Installation
 
-To set up the Hopfield Network project, first clone the repository to your local machine. Run the following command in your terminal:
+To set up the Hopfield Network project, first install the python packages. Run the following command in your terminal/powershell:
 
 ```bash
 pip install hopfield-memory
