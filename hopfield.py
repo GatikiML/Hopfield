@@ -4,20 +4,19 @@ Hopfield.ipynb
 Original file is located at
     https://colab.research.google.com/drive/1YWYdjbddQZJUtcpn7BoGAQWOnQDiBTT9?usp=sharing
 """
-
-!pip install pillow
-
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.ndimage import gaussian_filter
+import random
+from PIL import Image, ImageFilter
+import requests
+from io import BytesIO
 
 # Function to display an image
 def plot_image(image, title="Image"):
     plt.imshow(image.reshape((128, 128)), cmap='gray')
     plt.title(title)
     plt.show()
-
-import random
 
 # Base URL for the visualcube API
 base_url = "https://visualcube.api.cubing.net/visualcube.php?fmt=jpg&size=150&pzl=2"
@@ -39,10 +38,6 @@ for _ in range(3):
 
 # Check the list of generated URLs
 print(image_urls[0])  # Print the first 10 URLs as a sample
-
-from PIL import Image, ImageFilter
-import requests
-from io import BytesIO
 
 # Function to load an image from a URL and convert it to a binary 32x32 image
 def load_and_preprocess_image_from_url(url):
