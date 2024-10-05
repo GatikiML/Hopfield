@@ -1,3 +1,5 @@
 scipy
 pillow
 numpy
+requests
+random
