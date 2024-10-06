@@ -107,8 +107,8 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 
 ## References
 
-- Hopfield, J.J. (1982). "Neural networks and physical systems with emergent collective computational abilities". *Proceedings of the National Academy of Sciences*.
-- Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep Learning*. MIT Press.
+*- Hopfield, J.J. (1982). "Neural networks and physical systems with emergent collective computational abilities". *Proceedings of the National Academy of Sciences*.*
+*- Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep Learning*. MIT Press.*
 
 ## Thanks 😊
 
