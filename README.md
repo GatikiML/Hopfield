@@ -98,11 +98,12 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 
 ## Contributors
 
-- Vyom Nishant Patel¹
-- Abhisar Mehta
-- Vihaan Mishra
+- Vyom Nishant Patel
 
-  1 - Equal Contribution  
+## Acknowledgement
+
+- Abhisar Mehta
+- Vihaan Mishra  
 
 ## References
 
